@@ -1,11 +1,14 @@
-from socket import * 
+from socket import *
+import time
 serverName = '127.0.0.1'
-serverPort = 8085 
+serverPort = 8085
 
 clientSocket = socket(AF_INET, SOCK_STREAM) 
-clientSocket.connect((serverName,serverPort)) 
+clientSocket.connect((serverName,serverPort))
 
 while True:
+    # We need to open and close a connect every time 
+    # we want to send a message
     sentence = input('Input lowercase sentence (0 - to close):\n')
 
     if sentence == '0':
