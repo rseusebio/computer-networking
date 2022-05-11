@@ -11,5 +11,6 @@ count = 0
 while True:
     message, clientAddress = serverSocket.recvfrom(2048)
     count += 1
-    print('received: ' + message.decode())
+    flag = 'OUT' if count != int(message.decode()) else ''
+    print('received: ' + message.decode() + ' ' + str(count) + ' ' + flag)
     # serverSocket.sendto('done'.encode(), clientAddress)
